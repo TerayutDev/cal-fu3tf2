@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { BillComponent } from './bill/bill.component';
 
 import { FolderPage } from './folder.page';
+import { NumberblockComponent } from './numberblock/numberblock.component';
 import { OrderComponent } from './order/order.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { TypeComponent } from './type/type.component';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,18 @@ const routes: Routes = [
     path: 'purchase',
     component: PurchaseComponent
   },
-
+{
+  path:'numberblock',
+  component:NumberblockComponent
+},
+{
+  path:'announcement',
+  component:AnnouncementComponent
+},
+  {
+    path: 'edit-number-block',
+    loadChildren: () => import('./numberblock/edit-number-block/edit-number-block.module').then( m => m.EditNumberBlockPageModule)
+  }
 ];
 
 @NgModule({

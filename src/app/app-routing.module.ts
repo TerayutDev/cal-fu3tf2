@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { FolderPage } from './folder/folder.page';
 
 const routes: Routes = [
   {
@@ -8,7 +9,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
+    path: 'folder',
+    component:FolderPage,
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   }
 ];

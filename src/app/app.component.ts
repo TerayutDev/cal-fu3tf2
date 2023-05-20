@@ -10,8 +10,9 @@ export class AppComponent {
     { title: 'ยอดซื้อ', url: '/folder/order', icon: 'basket' },
     { title: 'ประเภท', url: '/folder/type', icon: 'build' },
      { title: 'ตัดยอดซื้อ', url: '/folder/purchase', icon: 'archive' },
-    // { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    // { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'เลขอั้น', url: '/folder/numberblock', icon: 'alert-circle' },
+    { title: 'ประกาศรางวัล', url: '/folder/announcement', icon: 'gift' },
+
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}

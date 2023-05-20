@@ -1,3 +1,43 @@
-<p>
-  type works!
-</p>
+<ion-item>
+  <ion-label>
+    <h1  style="text-align: center;" >ประเภทหวย</h1>
+  </ion-label>
+</ion-item>
+
+<ion-item-group *ngFor="let item of typeList">
+  <ion-item-divider>
+    <ion-label>{{item.type}}</ion-label>
+
+    <ion-button  id="open-modal" (click)="editType(item)"  expand="block">    <ion-icon name="pencil-outline"></ion-icon></ion-button>
+  </ion-item-divider>
+
+  <ion-item lines="none">
+    <ion-label>ราคาจ่าย</ion-label>
+    <ion-label>{{item.price}}.-</ion-label>
+
+  </ion-item>
+
+</ion-item-group>
+ <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">ยกเลิก</ion-button>
+        </ion-buttons>
+        <ion-title>แก้ไขข้อมูลประเภทหวย</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">บันทึก</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <h1  style="text-align: center;" >ประเภทหวย</h1>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-label position="stacked">ราคาจ่าย</ion-label>
+        <ion-input style="text-align: right;" type="number" [(ngModel)]="price" placeholder="ราคาจ่าย" ></ion-input>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+

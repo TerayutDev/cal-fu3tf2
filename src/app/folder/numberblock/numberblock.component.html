@@ -1,0 +1,63 @@
+<ion-item>
+  <ion-label>
+    <h1  style="text-align: center;" >เลขอั้น</h1>
+  </ion-label>
+</ion-item>
+<ion-list>
+  <ion-item>
+    <ion-select aria-label="fruit" placeholder="เลือกงวดหวย" okText="ตกลง" cancelText="ยกเลิก">
+      <ion-select-option selected value="apples">16 พ.ค. 2566</ion-select-option>
+      <ion-select-option value="oranges">1 พ.ค. 2566</ion-select-option>
+      <ion-select-option value="bananas">16 เม.ย. 2566</ion-select-option>
+      <ion-select-option value="bananas">1 เม.ย. 2566</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-item-group *ngFor="let item of typeList">
+  <ion-item-divider>
+    <ion-label>{{item.type}}</ion-label>
+
+    <ion-button  id="open-modal" (click)="editType(item)"  expand="block">    <ion-icon name="pencil-outline"></ion-icon></ion-button>
+  </ion-item-divider>
+
+  <ion-item lines="none">
+    <ion-label>เลขอั้น</ion-label>
+    <ion-label>{{item.blockNumber}}</ion-label>
+    <ion-label>ราคาจ่าย</ion-label>
+    <ion-label>{{item.price}}.-</ion-label>
+
+  </ion-item>
+
+</ion-item-group>
+ <ion-modal  (willDismiss)="onWillDismiss($event)" [presentingElement]="presentingElement">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">ยกเลิก</ion-button>
+        </ion-buttons>
+        <ion-title>แก้ไขเลขอั้น</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [disabled]="savebtn" [strong]="true">บันทึก</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <h1  style="text-align: center;" >{{typeNumber}}</h1>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item *ngFor="let item of numEdits">
+        <ion-input  style="text-align: left;" type="tel" [maxlength]="digisSelect"  value="{{item}}" placeholder="เลขอั้น" ></ion-input>
+      </ion-item>
+      <ion-toolbar>
+
+        <ion-buttons slot="primary">
+          <ion-button fill="outline" (click)="addline()">
+            เพิ่ม
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+
