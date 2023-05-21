@@ -1,0 +1,29 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">ยกเลิก</ion-button>
+    </ion-buttons>
+    <ion-title>แก้ไขเลขที่ออก</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [disabled]="savebtn" [strong]="true">บันทึก</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <h1  style="text-align: center;" >{{typeNumber}}</h1>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item *ngFor="let item of numEdits">
+    <ion-input  style="text-align: left;" type="tel" [maxlength]="digisSelect"  value="{{item}}" placeholder="เลขอั้น" ></ion-input>
+  </ion-item>
+  <ion-toolbar>
+
+    <ion-buttons slot="primary">
+      <ion-button fill="outline" (click)="addline()">
+        เพิ่ม
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-content>
+
+

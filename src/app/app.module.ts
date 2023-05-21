@@ -10,8 +10,9 @@ import { IonLabel } from '@ionic/angular';
 import { TypeComponent } from './folder/type/type.component';
 import { FormsModule } from '@angular/forms';
 import { NumberblockComponent } from './folder/numberblock/numberblock.component';
+import { AnnouncementComponent } from './folder/announcement/announcement.component';
 @NgModule({
-  declarations: [AppComponent,TypeComponent,NumberblockComponent],
+  declarations: [AppComponent,TypeComponent,NumberblockComponent,AnnouncementComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

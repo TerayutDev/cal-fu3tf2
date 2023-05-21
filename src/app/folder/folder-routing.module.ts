@@ -41,6 +41,14 @@ const routes: Routes = [
   {
     path: 'edit-number-block',
     loadChildren: () => import('./numberblock/edit-number-block/edit-number-block.module').then( m => m.EditNumberBlockPageModule)
+  },
+  {
+    path: 'edit-type',
+    loadChildren: () => import('./type/edit-type/edit-type.module').then( m => m.EditTypePageModule)
+  },
+  {
+    path: 'edit-announcement',
+    loadChildren: () => import('./announcement/edit-announcement/edit-announcement.module').then( m => m.EditAnnouncementPageModule)
   }
 ];
 
