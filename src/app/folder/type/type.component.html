@@ -5,11 +5,20 @@
 </ion-item>
 
 <ion-item-group *ngFor="let item of typeList">
-  <ion-item-divider>
-    <ion-label>{{item.type}}</ion-label>
+  <ion-item-divider class="bg-green-200" >
+    <div  class="grid grid-cols-6 w-full">
+      <div class="col-start-1 col-end-2 text-3xl">
+        <H2 style="color: black;">{{item.type}}</H2>
+      </div>
+      <div class="col-start-5  flex text-xl col-span-2 mt-1 text-red-400 justify-end mb-1">
+        <ion-button  id="open-modal" (click)="editType(item)"   expand="block">    <ion-icon name="pencil-outline"></ion-icon></ion-button>
+      </div>
 
-    <ion-button  id="open-modal" (click)="editType(item)"  expand="block">    <ion-icon name="pencil-outline"></ion-icon></ion-button>
+    </div>
+
+
   </ion-item-divider>
+
 
   <ion-item lines="none">
     <ion-label>ราคาจ่าย</ion-label>

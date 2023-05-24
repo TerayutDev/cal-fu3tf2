@@ -19,6 +19,6 @@ import { BillComponent } from './bill/bill.component';
     FolderPageRoutingModule,
 
   ],
-  declarations: [FolderPage,BillComponent]
+  declarations: [FolderPage]
 })
 export class FolderPageModule {}

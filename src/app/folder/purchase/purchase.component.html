@@ -1,3 +1,78 @@
-<p>
-  purchase works!
-</p>
+<ion-item>
+  <ion-label>
+    <h1  style="text-align: center;" >ตัดยอดซื้อ</h1>
+  </ion-label>
+</ion-item>
+<ion-list  style=" display: flex;">
+  <ion-item >
+    <ion-select  placeholder="เลือกงวดหวย" okText="ตกลง" cancelText="ยกเลิก">
+      <ion-select-option selected value="apples">16 พ.ค. 2566</ion-select-option>
+      <ion-select-option value="oranges">1 พ.ค. 2566</ion-select-option>
+      <ion-select-option value="bananas">16 เม.ย. 2566</ion-select-option>
+      <ion-select-option value="bananas">1 เม.ย. 2566</ion-select-option>
+    </ion-select>
+    <ion-item >
+      <ion-select  placeholder="เลือกประเภทหวย" okText="ตกลง" cancelText="ยกเลิก">
+        <ion-select-option selected value="apples">2 ตัวบน</ion-select-option>
+        <ion-select-option value="oranges">3 ตัวบน</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+</ion-list>
+<ion-item-group *ngFor="let item of purchaseList">
+  <ion-item-divider class="bg-green-200" >
+    <div  class="grid grid-cols-6 w-full">
+      <div class="col-start-1 col-end-2 text-3xl">
+        <H2 style="color: black;">{{item.typeLotto}}</H2>
+      </div>
+      <div class="col-start-5  flex text-xl col-span-2 mt-1 text-red-400">
+       <div>ยอดซื้อรวม</div>
+        <div class="ml-5">{{item.sumPriceTotal}}.-</div>
+      </div>
+
+    </div>
+
+
+  </ion-item-divider>
+
+  <ion-item lines="none" *ngFor="let num of item.numberList">
+    <ion-label>เลข</ion-label>
+    <ion-label>{{num.number}}</ion-label>
+    <ion-label>ยอดซื้อ</ion-label>
+    <ion-label>{{num.totalPrice}}.-</ion-label>
+
+  </ion-item>
+
+</ion-item-group>
+ <ion-modal  (willDismiss)="onWillDismiss($event)" [presentingElement]="presentingElement">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">ยกเลิก</ion-button>
+        </ion-buttons>
+        <ion-title>แก้ไขเลขอั้น</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [disabled]="savebtn" [strong]="true">บันทึก</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <h1  style="text-align: center;" >{{typeNumber}}</h1>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item *ngFor="let item of numEdits">
+        <ion-input  style="text-align: left;" type="tel" [maxlength]="digisSelect"  value="{{item}}" placeholder="เลขอั้น" ></ion-input>
+      </ion-item>
+      <ion-toolbar>
+
+        <ion-buttons slot="primary">
+          <ion-button fill="outline" (click)="addline()">
+            เพิ่ม
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-content>
+
+  </ng-template>
+</ion-modal>
+

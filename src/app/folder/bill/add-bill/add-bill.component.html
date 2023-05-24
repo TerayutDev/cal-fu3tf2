@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">ยกเลิก</ion-button>
+    </ion-buttons>
+    <ion-title class="text-center">เพิ่มโพยหวย</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()"  [strong]="true">บันทึก</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-grid>
+    <ion-row class="text-center">
+      <ion-col>ประเภทหวย</ion-col>
+      <ion-col>เลข</ion-col>
+      <ion-col>จำนวนซื้อ(บาท)</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row *ngFor="let item of billList">
+      <ion-col  class="items-center">
+        <ion-select  placeholder="ประเภทหวย" okText="ตกลง" cancelText="ยกเลิก">
+          <ion-select-option *ngFor="let item of typeList" selected value="{{item.code}}">{{item.type}}</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="เลข"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input type="number" placeholder="จำนวนซื้อ"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar>
+
+    <ion-buttons slot="primary">
+      <ion-button fill="outline" (click)="addBillLine()">
+        เพิ่ม
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-content>
+
+
